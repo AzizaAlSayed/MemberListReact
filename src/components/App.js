@@ -12,13 +12,13 @@ function App() {
         <Header />
         <div className="TitleStyle">
           <Search />
-          <MemberList name="Carolien Bloeme" />
-          <MemberList name="Sun Jun" />
-          <MemberList name="Song Bao" />
-          <MemberList name="Olivia Arribas" />
-          <MemberList name="Bonginkosi Mdladlana" />
-          <MemberList name="Ariana Belomestnykh" />
-          <MemberList name="Jacqueline Likoki" />
+          <MemberList nameMember="Carolien Bloeme" />
+          <MemberList nameMember="Sun Jun" />
+          <MemberList nameMember="Song Bao" />
+          <MemberList nameMember="Olivia Arribas" />
+          <MemberList nameMember="Bonginkosi Mdladlana" />
+          <MemberList nameMember="Ariana Belomestnykh" />
+          <MemberList nameMember="Jacqueline Likoki" />
           <NewMember />
         </div>
       </div>
