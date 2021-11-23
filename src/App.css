@@ -112,3 +112,10 @@
   justify-content: center;
   margin-left: 10px;
 }
+
+.CheckIconMember {
+  background-position: 10px center;
+  background-repeat: no-repeat;
+  background-size: 13px 13px;
+  background-image: url("Icons/check.svg");
+}

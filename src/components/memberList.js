@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 export default function MemberList({ name }) {
+  const [isActive, setActive] = useState(true);
+
   return (
     <div>
       <div className="FlexDisplay">
@@ -15,7 +19,7 @@ export default function MemberList({ name }) {
             <p>{name}</p>
           </div>
           <div className="MemberPadding">
-            <button type="button" className="ButtonCheckMember CyrcleIconMember" onClick="">
+            <button type="button" className={isActive ? "CheckIconMember ButtonCheckMember" : "ButtonCheckMember CyrcleIconMember"} onClick={() => setActive(!isActive)}>
             </button>
           </div>
         </div>
