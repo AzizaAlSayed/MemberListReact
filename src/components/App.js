@@ -1,23 +1,22 @@
 import Header from './header';
-import Search from './search.js';
-import Member from './member.js';
-import NewMember from './newMember.js';
+import Search from './search';
+import Member from './member';
+import NewMember from './newMember';
 import '../App.css';
+import { members } from '../data.js';
+import MemberList from './memberList';
 
-function App() {
+export default function App() {
   return (
     <div className="Container">
       <div className="LeftPadding" >
         <Header />
         <div className="TitleStyle">
           <Search />
-          <Member />
+          <MemberList members={members} />
           <NewMember />
         </div>
       </div>
-    </div>
+    </div >
   );
 }
-
-
-export default App;
