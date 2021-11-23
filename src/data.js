@@ -19,7 +19,7 @@ export const members = [{
     name: "Ariana Belomestnykh",
 },
 {
-    id: 5,
+    id: 6,
     name: "Jacqueline Likoki",
 },
 ];
