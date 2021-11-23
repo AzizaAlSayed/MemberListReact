@@ -1,6 +1,6 @@
 export default function MemberList({ members }) {
   const membersList = members.map(member =>
-    <div className="FlexDisplay">
+    <div key={member.id} className="FlexDisplay">
       <div class="Members">
         <div className="Member">
           <svg width="18px" height="18px" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
