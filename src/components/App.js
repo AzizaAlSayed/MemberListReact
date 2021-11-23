@@ -1,9 +1,8 @@
 import Header from './header';
 import Search from './search';
-import Member from './member';
 import NewMember from './newMember';
 import '../App.css';
-import { members } from '../data.js';
+import { members } from '../data';
 import MemberList from './memberList';
 
 export default function App() {
