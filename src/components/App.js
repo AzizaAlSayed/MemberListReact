@@ -4,16 +4,26 @@ import NewMember from './newMember';
 import '../App.css';
 import { members } from '../data';
 import MemberList from './memberList';
+import { useState } from 'react';
 
 export default function App() {
+  const [listOfMembers, setListOfMembers] = useState(members);
+
+  function handleAddNewMember(memberName) {
+    setListOfMembers([...listOfMembers, {
+      id: listOfMembers.length,
+      name: memberName,
+    }]);
+  }
+
   return (
     <div className="Container">
       <div className="LeftPadding" >
         <Header />
         <div className="TitleStyle">
           <Search />
-          <MemberList members={members} />
-          <NewMember />
+          <MemberList members={listOfMembers} />
+          <NewMember onAddNewMember={handleAddNewMember} />
         </div>
       </div>
     </div >
