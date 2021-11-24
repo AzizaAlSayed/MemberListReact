@@ -4,15 +4,23 @@ import NewMember from './newMember';
 import '../App.css';
 import { members } from '../data';
 import MemberList from './memberList';
+import { useState } from 'react';
 
 export default function App() {
+  const [listOfMembers, setListOfMembers] = useState(members);
+
+
+  function handleDeleteMember(memberId) {
+    setListOfMembers(listOfMembers.filter(member => member.id !== memberId));
+  }
+
   return (
     <div className="Container">
       <div className="LeftPadding" >
         <Header />
         <div className="TitleStyle">
           <Search />
-          <MemberList members={members} />
+          <MemberList members={listOfMembers} onDeleteMember={handleDeleteMember} />
           <NewMember />
         </div>
       </div>
