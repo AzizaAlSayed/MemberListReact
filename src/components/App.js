@@ -1,4 +1,5 @@
 import Header from './header';
+import { members } from '../data';
 import Search from './search';
 import NewMember from './newMember';
 import '../App.css';
