@@ -1,4 +1,4 @@
-export default function Member({ id, name }) {
+export default function Member({ id, name, onDelete }) {
     return (
         <div key={id} className="FlexDisplay">
             <div class="Members">
@@ -18,7 +18,7 @@ export default function Member({ id, name }) {
                     </button>
                 </div>
             </div>
-            <button id="delet_m7" type="button" className="ButtonDeleteMember" onClick=""> Delete
+            <button id="delet_m7" type="button" className="ButtonDeleteMember" onClick={() => onDelete(id)}> Delete
             </button>
         </div>
     );

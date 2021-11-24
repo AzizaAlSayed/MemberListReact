@@ -5,22 +5,23 @@ import '../App.css';
 import { useState } from "react";
 import { members } from '../data';
 import MemberList from './memberList';
+import { useState } from 'react';
 
-function App() {
-  const [memberName, setMemberName] = useState("");
+export default function App() {
+  const [listOfMembers, setListOfMembers] = useState(members);
 
-  const searchMemberResult = !memberName
-    ? members : members.filter(member =>
-      (member.name.toLowerCase()).includes(memberName.toLowerCase())
-    );
+
+  function handleDeleteMember(memberId) {
+    setListOfMembers(listOfMembers.filter(member => member.id !== memberId));
+  }
+
   return (
     <div className="Container">
       <div className="LeftPadding" >
         <Header />
         <div className="TitleStyle">
-          <Search memberName={memberName}
-            onMemberNameChange={setMemberName} />
-          <MemberList members={searchMemberResult} />
+          <Search />
+          <MemberList members={listOfMembers} onDeleteMember={handleDeleteMember} />
           <NewMember />
         </div>
       </div>
