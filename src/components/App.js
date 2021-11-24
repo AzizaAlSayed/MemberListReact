@@ -24,9 +24,6 @@ function App() {
           <NewMember />
         </div>
       </div>
-    </div>
+    </div >
   );
 }
-
-
-export default App;
