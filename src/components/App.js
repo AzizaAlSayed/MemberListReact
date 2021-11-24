@@ -10,7 +10,7 @@ export default function App() {
   const [listOfMembers, setListOfMembers] = useState(members);
 
   function handleAddNewMember(memberName) {
-    setListOfMembers([...listOfMembers, {
+    setListOfMembers(members => [...members, {
       id: listOfMembers.length,
       name: memberName,
     }]);
