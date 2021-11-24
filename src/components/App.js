@@ -1,25 +1,31 @@
 import Header from './header';
-import Search from './search.js';
-import MemberList from './memberList.js';
-import NewMember from './newMember.js';
 import { members } from '../data';
-
+import Search from './search';
+import NewMember from './newMember';
 import '../App.css';
+import { useState } from "react";
+import { members } from '../data';
+import MemberList from './memberList';
+import { useState } from 'react';
 
-function App() {
+export default function App() {
+  const [listOfMembers, setListOfMembers] = useState(members);
+
+
+  function handleDeleteMember(memberId) {
+    setListOfMembers(listOfMembers.filter(member => member.id !== memberId));
+  }
+
   return (
     <div className="Container">
       <div className="LeftPadding" >
         <Header />
         <div className="TitleStyle">
           <Search />
-          <MemberList members={members} />
+          <MemberList members={listOfMembers} onDeleteMember={handleDeleteMember} />
           <NewMember />
         </div>
       </div>
-    </div>
+    </div >
   );
 }
-
-
-export default App;
