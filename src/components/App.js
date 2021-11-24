@@ -2,6 +2,7 @@ import Header from './header';
 import Search from './search';
 import NewMember from './newMember';
 import '../App.css';
+import { useState } from "react";
 import { members } from '../data';
 import MemberList from './memberList';
 import { useState } from 'react';

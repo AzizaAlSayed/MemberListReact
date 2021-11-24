@@ -7,4 +7,7 @@ export default function MemberList({ members, onDeleteMember }) {
   return (
     <p> {membersList} </p>
   );
+  return (
+    <p> {membersList} </p>
+  );
 }
