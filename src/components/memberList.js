@@ -7,4 +7,7 @@ export default function MemberList({ members }) {
   return (
     <p> {membersList} </p>
   );
+  return (
+    <p> {membersList} </p>
+  );
 }
