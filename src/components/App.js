@@ -5,9 +5,6 @@ import '../App.css';
 import { useState } from "react";
 import { members } from '../data';
 import MemberList from './memberList';
-import { useState } from 'react';
-
-
 
 export default function App() {
   const [listOfMembers, setListOfMembers] = useState(members);
@@ -18,6 +15,7 @@ export default function App() {
       id: listOfMembers.length,
       name: memberName,
     }]);
+  }
 
 
   const searchMemberResult = !memberName
@@ -43,3 +41,4 @@ export default function App() {
     </div >
   );
 }
+
