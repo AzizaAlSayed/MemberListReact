@@ -5,6 +5,7 @@ import '../App.css';
 import { useState } from "react";
 import { members } from '../data';
 import MemberList from './memberList';
+import { useState } from 'react';
 
 
 
@@ -12,8 +13,15 @@ export default function App() {
   const [listOfMembers, setListOfMembers] = useState(members);
   const [memberName, setMemberName] = useState("");
 
+  function handleAddNewMember(memberName) {
+    setListOfMembers(members => [...members, {
+      id: listOfMembers.length,
+      name: memberName,
+    }]);
+
+
   const searchMemberResult = !memberName
-    ? members : members.filter(member =>
+    ? listOfMembers : listOfMembers.filter(member =>
       (member.name.toLowerCase()).includes(memberName.toLowerCase())
     );
 
@@ -28,8 +36,8 @@ export default function App() {
         <div className="TitleStyle">
           <Search memberName={memberName}
             onMemberNameChange={setMemberName} />
-          <MemberList members={listOfMembers} onDeleteMember={handleDeleteMember} />
-          <NewMember />
+          <MemberList members={searchMemberResult} onDeleteMember={handleDeleteMember} />
+          <NewMember onAddNewMember={handleAddNewMember} />
         </div>
       </div>
     </div >
