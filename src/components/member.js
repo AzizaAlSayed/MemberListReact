@@ -1,8 +1,8 @@
-import { useState } from "react";
-
-export default function Member({ id, name, onDelete }) {
-    const [isActive, setActive] = useState(false);
-
+export default function Member({ id, name, onDelete, isActive, setActivation, deleteMember }) {
+    function onCheckDelete() {
+        // setActivation(!isActive);
+        deleteMember(id);
+    }
     return (
         <div key={id} className="FlexDisplay">
             <div class="Members">
@@ -18,11 +18,12 @@ export default function Member({ id, name, onDelete }) {
                     <p key={id}>{name}</p>
                 </div>
                 <div className="MemberPadding">
-                    <button type="button" className={isActive ? "CheckIconMember ButtonCheckMember" : "ButtonCheckMember CyrcleIconMember"} onClick={() => setActive(!isActive)}>
+                    <button type="button" className={isActive ? "CheckIconMember ButtonCheckMember" : "ButtonCheckMember CyrcleIconMember"}
+                        onClick={() => onCheckDelete()}>
                     </button>
                 </div>
             </div>
-            <button id="delet_m7" type="button" className="ButtonDeleteMember" onClick={() => onDelete(id)}> Delete
+            <button type="button" className="ButtonDeleteMember" onClick={() => onDelete(id)}> Delete
             </button>
         </div>
     );
