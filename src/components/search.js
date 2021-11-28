@@ -1,8 +1,14 @@
 export default function Search({ memberName, onMemberNameChange }) {
-    const onHandleChange = name => {
+    const onHandleChange = (name) => {
         onMemberNameChange(name.target.value);
     };
     return (
-        <input className="SearchInput" value={memberName} type="search" placeholder="Find members" onChange={onHandleChange} />
+        <input
+            className="SearchInput"
+            value={memberName}
+            type="search"
+            placeholder="Find members"
+            onChange={onHandleChange}
+        />
     );
 }

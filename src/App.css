@@ -98,7 +98,7 @@
   width: 50px;
   height: 30px;
   justify-content: center;
-  margin-left: 10px;
+  margin-left: 100px;
 }
 
 .AddInput {
@@ -128,4 +128,22 @@
   background-repeat: no-repeat;
   background-size: 13px 13px;
   background-image: url("Icons/check.svg");
+}
+
+.MembersDeleting {
+  display: flex;
+  align-items: center;
+}
+
+.FontMembersDeleting {
+  font-size: 10px;
+  margin-left: 87px;
+}
+
+.VisibleTag {
+  visibility: visible;
+}
+
+.HiddenTag {
+  visibility: hidden;
 }
