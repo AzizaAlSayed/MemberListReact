@@ -1,9 +1,37 @@
 import Member from "./member";
-export default function MemberList({ members, onDeleteMember }) {
-  const membersList = members.map(member =>
-    <Member key={member.id} id={member.id} name={member.name} onDelete={onDeleteMember}></Member>)
-    ;
+import DeleteMembers from "./deleteMembers";
+import { useState } from "react";
+
+export default function MemberList({
+  members,
+  onDeleteMember,
+  deleteMembers,
+}) {
+  const [activeMembers, setActiveMembers] = useState({});
+
+  const isDeleteVisible = Object.values(activeMembers).some((v) => v === true);
   return (
-    <p> {membersList} </p>
+    <div>
+      <p>
+        {members.map((member) => (
+          <Member
+            key={member.id}
+            id={member.id}
+            name={member.name}
+            onDelete={onDeleteMember}
+            isActive={Boolean(activeMembers[member.id])}
+            setActive={() =>
+              setActiveMembers((members) => {
+                const isActive = Boolean(activeMembers[member.id]);
+                return { ...members, [member.id]: !isActive };
+              })
+            }
+          ></Member>
+        ))}
+        {isDeleteVisible && (
+          <DeleteMembers onDeleteMembers={() => deleteMembers(activeMembers)} />
+        )}
+      </p>
+    </div>
   );
 }
