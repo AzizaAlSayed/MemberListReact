@@ -1,14 +1,9 @@
-export default function Member({
-  id,
-  name,
-  onDelete,
-  isActive,
-  setActive,
-  deleteMember,
-}) {
+import { useState } from "react";
+
+export default function Member({ id, name, onDelete, setActive, isActive }) {
+
   function onCheckDelete() {
     setActive(!isActive);
-    deleteMember(id);
   }
   return (
     <div key={id} className="FlexDisplay">

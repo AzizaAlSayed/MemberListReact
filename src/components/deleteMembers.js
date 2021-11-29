@@ -5,7 +5,7 @@ export default function DeleteMembers({ onDeleteMembers }) {
             <button
                 type="button"
                 className="ButtonDeleteMembers"
-                onClick={() => onDeleteMembers()}
+                onClick={onDeleteMembers}
             >
                 Delete
             </button>

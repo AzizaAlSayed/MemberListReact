@@ -1,14 +1,15 @@
 import Member from "./member";
 import DeleteMembers from "./deleteMembers";
+import { useState } from "react";
 
 export default function MemberList({
   members,
   onDeleteMember,
-  checkMemberDelete,
   deleteMembers,
-  setActive,
-  isActive,
 }) {
+  const [activeMembers, setActiveMembers] = useState({});
+
+  const isDeleteVisible = Object.values(activeMembers).some((v) => v === true);
   return (
     <div>
       <p>
@@ -18,12 +19,18 @@ export default function MemberList({
             id={member.id}
             name={member.name}
             onDelete={onDeleteMember}
-            isActive={isActive}
-            setActive={() => setActive(!isActive)}
-            deleteMember={checkMemberDelete}
+            isActive={Boolean(activeMembers[member.id])}
+            setActive={() =>
+              setActiveMembers((members) => {
+                const isActive = Boolean(activeMembers[member.id]);
+                return { ...members, [member.id]: !isActive };
+              })
+            }
           ></Member>
         ))}
-        {isActive && <DeleteMembers onDeleteMembers={deleteMembers} />}
+        {isDeleteVisible && (
+          <DeleteMembers onDeleteMembers={() => deleteMembers(activeMembers)} />
+        )}
       </p>
     </div>
   );

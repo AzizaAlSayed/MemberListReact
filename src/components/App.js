@@ -9,14 +9,11 @@ import MemberList from "./memberList";
 export default function App() {
   const [listOfMembers, setListOfMembers] = useState(members);
   const [memberName, setMemberName] = useState("");
-  const [isActive, setActive] = useState(false);
   const searchMemberResult = !memberName
     ? listOfMembers
     : listOfMembers.filter((member) =>
       member.name.toLowerCase().includes(memberName.toLowerCase())
     );
-
-  let deleteMembersArray = [];
 
   function handleAddNewMember(memberName) {
     setListOfMembers((members) => [
@@ -28,18 +25,10 @@ export default function App() {
     ]);
   }
 
-  function addCheckMemberDelete(id) {
-    if (!deleteMembersArray.includes(id)) deleteMembersArray.push(id);
-    else {
-      deleteMembersArray.splice(deleteMembersArray.indexOf(id), 1);
-    }
-  }
+  function handleDeleteMembers(activeMembers) {
 
-  function handleDeleteMembers() {
     setListOfMembers(
-      searchMemberResult.filter(
-        (member) => !deleteMembersArray.includes(member.id)
-      )
+      listOfMembers.filter((member) => !activeMembers[member.id] === true)
     );
   }
 
@@ -56,10 +45,7 @@ export default function App() {
           <MemberList
             members={searchMemberResult}
             onDeleteMember={handleDeleteMember}
-            checkMemberDelete={addCheckMemberDelete}
             deleteMembers={handleDeleteMembers}
-            setActive={setActive}
-            isActive={isActive}
           />
           <NewMember onAddNewMember={handleAddNewMember} />
         </div>
